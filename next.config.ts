@@ -1,11 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  experimental: {
-    turbo: { enabled: false }
-  }
-  
+  /* No experimental turbo config */
 };
 
 export default nextConfig;
