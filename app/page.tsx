@@ -1,16 +1,10 @@
 import ProductCard from "@/components/ProductCard";
-import { headers } from "next/headers";
 
 export default async function Home() {
-  
-  const headersList = await headers();
-  
-  const host = headersList.get("host")!;
-  const protocol = host.includes("localhost") ? "http" : "https";
+  // ✅ ABSOLUTE STATIC API URL (always works)
+  const API_URL = "https://neosoft-app.vercel.app/api/products";
 
-  const apiUrl = `${protocol}://${host}/api/products`;
-
-  const res = await fetch(apiUrl, { cache: "no-store" });
+  const res = await fetch(API_URL, { cache: "no-store" });
 
   if (!res.ok) {
     console.error("API failed:", res.status, await res.text());
