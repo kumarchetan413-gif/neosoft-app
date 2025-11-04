@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* No experimental turbo config */
+  webpack(config) {
+    return config; 
+  },
 };
 
 export default nextConfig;
