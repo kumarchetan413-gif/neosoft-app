@@ -2,7 +2,7 @@ import ProductCard from "@/components/ProductCard";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default async function Home() {
-  const res = await fetch("http://localhost:3000/api/products", {
+  const res = await fetch("/api/products", {
     cache: "no-store",
   });
 
