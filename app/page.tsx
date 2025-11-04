@@ -1,20 +1,19 @@
 import ProductCard from "@/components/ProductCard";
-// Get correct host from headers
 import { headers } from "next/headers";
 
 export default async function Home() {
-  // SSR-safe host detection
-  const headersList = headers();
+  
+  const headersList = await headers();
+  
   const host = headersList.get("host")!;
   const protocol = host.includes("localhost") ? "http" : "https";
 
   const apiUrl = `${protocol}://${host}/api/products`;
 
-  // Fetch with absolute URL (works everywhere)
   const res = await fetch(apiUrl, { cache: "no-store" });
 
   if (!res.ok) {
-    console.error("API fetch failed:", res.status, await res.text());
+    console.error("API failed:", res.status, await res.text());
     throw new Error("Failed to fetch products");
   }
 
