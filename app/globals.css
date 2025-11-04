@@ -1,4 +1,11 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth dark/light transitions */
+html {
+  @apply transition-colors duration-300;
+}
 
 :root {
   --background: #ffffff;
